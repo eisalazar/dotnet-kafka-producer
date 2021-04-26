@@ -1,0 +1,69 @@
+version: '3.8'
+services:
+  zookeeper:
+    image: bitnami/zookeeper:latest
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    ports:
+      - '2181' 
+  kafka:
+    image: bitnami/kafka:latest
+    environment:
+      - KAFKA_BROKER_ID=1
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_ZOOKEEPER_PROTOCOL=PLAINTEXT
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9091,CLIENT://:9092,EXTERNAL://:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9091,CLIENT://kafka:9092,EXTERNAL://localhost:9093
+      - KAFKA_INTER_BROKER_LISTENER_NAME=CLIENT
+    ports:
+      - '9093:9093'
+      
+    depends_on:
+      - zookeeper
+
+  schema-registry:
+    image: apicurio/apicurio-registry-mem:1.3.2.Final
+    ports:
+      - 8081:8080
+    depends_on:
+      - kafka
+    environment:
+      QUARKUS_PROFILE: prod
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      APPLICATION_ID: registry_id
+      APPLICATION_SERVER: localhost:9000
+      
+#  schema-registry:
+#    image: confluentinc/cp-schema-registry:5.0.0
+#    environment:
+#     - SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL=zookeeper:2181
+#     - SCHEMA_REGISTRY_HOST_NAME=schema-registry
+#      - SCHEMA_REGISTRY_LISTENERS=http://schema-registry:8081
+#      - SCHEMA_REGISTRY_ACCESS_CONTROL_ALLOW_METHODS=GET,POST,PUT,OPTIONS
+#      - SCHEMA_REGISTRY_ACCESS_CONTROL_ALLOW_ORIGIN=*
+#    ports:
+#      - '8082:8081'
+#    depends_on:
+#     - kafka
+#     - zookeeper
+#  schema-ui:
+#    image: landoop/schema-registry-ui
+#    environment:
+#      - SCHEMAREGISTRY_URL=http://localhost:8082
+#    ports:
+#      - '8083:8000'
+#    depends_on:
+#     - schema-registry
+
+#    image: apicurio/apicurio-registry-mem:1.2.2.Final
+#    ports:
+#      - '8081:8080'
+#    environment:
+#      - QUARKUS_PROFILE=prod
+#      - KAFKA_BOOTSTRAP_SERVERS=:9092
+#      - APPLICATION_ID=registry_id
+#    depends_on:
+#      - kafka
+#      - zookeeper

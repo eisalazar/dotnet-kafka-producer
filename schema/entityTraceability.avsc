@@ -1,0 +1,284 @@
+{
+  "type": "record",
+  "name": "EntityTraceability",
+  "namespace": "IntegraPublisher.Model",
+  "fields": [
+    {
+      "name": "active",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    {
+      "name": "additionalData",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "addressRecipient",
+      "type": [
+        "null",
+        "long"
+      ]
+    },
+    {
+      "name": "addressSender",
+      "type": [
+        "null",
+        "long"
+      ]
+    },
+    {
+      "name": "branch",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "consolidateSend",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "containerCodeIn",
+      "type": [
+        "null",
+        "long"
+      ]
+    },
+    {
+      "name": "containerCodeOut",
+      "type": [
+        "null",
+        "long"
+      ]
+    },
+    {
+      "name": "containerTypeIn",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "containerTypeOut",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "cycle",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "cyclePhase",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "cycleType",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "dateVisit",
+      "type": [
+        "null",
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "entity",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "entityCode",
+      "type": [
+        "null",
+        "long"
+      ]
+    },
+    {
+      "name": "entityNumberActive",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    {
+      "name": "entityTraceabilityCode",
+      "type": [
+        "null",
+        "long"
+      ]
+    },
+    {
+      "name": "interfaceSend",
+      "type": [
+        "null",
+        "double"
+      ]
+    },
+    {
+      "name": "isDeclared",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    {
+      "name": "isDistributable",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    {
+      "name": "logicInformation",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    {
+      "name": "managmentAS400",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    {
+      "name": "managmentQuantity",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "motiveState",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "motiveStateDropDown",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "movementSubType",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "movementType",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "numberCode",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "numberType",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "op",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "resendQuantity",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "sinister",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "stamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    },
+    {
+      "name": "state",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "toBranch",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "traceabilityDate",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    },
+    {
+      "name": "declarationState",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "replicationId",
+      "type": [
+        "null",
+        "long"
+      ]
+    }
+  ]
+}

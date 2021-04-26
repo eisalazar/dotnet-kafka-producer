@@ -1,0 +1,47 @@
+syntax = "proto2";
+
+package ar.com.andreani.dbpuller.model;
+
+option csharp_namespace = "IntegraPublisher.Model";
+
+message EntityNumber{
+  optional string numberCode = 1;
+  optional double entity = 2;
+  optional double entiTyCode = 3;
+  optional double entityGroup = 4;
+  optional double fromBranch = 5;
+  optional double addressRecipient = 6;
+  optional double addressSender = 7;
+  optional double entityType = 8;
+  optional double originalFromBranch = 9;
+  optional double originalToBranch = 10;
+  optional string deliveryObservation = 11;
+  optional double numberType = 12;
+  optional string boxStore = 13;
+  optional string sealStore = 14;
+  optional Piece piece = 15;
+  optional fixed64 inDate = 16;
+
+//  optional int64 toBranch = 8;
+//  optional int64 inBranch = 9;
+//  optional int64 state = 10;
+//  optional int64 operator = 23;
+}
+
+message Piece {
+  optional double piece = 1;
+  optional Contract contract = 2;
+}
+message Contract {
+  optional double contract = 1;
+  optional string description = 2;
+  optional double serviceType = 3;
+  optional string internal = 4;
+  optional Client client = 5;
+  optional string clientId = 6;
+  optional double clientAddress = 7;
+}
+message Client {
+  optional double client = 1;
+  optional string internal = 2;
+}

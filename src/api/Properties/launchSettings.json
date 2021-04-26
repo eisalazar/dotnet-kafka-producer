@@ -1,0 +1,32 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:58193/",
+      "sslPort": 44392
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "StreamProcessor": {
+      "commandName": "Project",
+      "commandLineArgs": "--spring.cloud.stream.bindings.input.destination=lala",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "BOOTSTRAPSERVERS": "localhost:9093",
+        //"HOTROD_PREBUILT_DIR": "c:\\Users\\fglaeser\\Downloads\\infinispan-hotrod-cpp-8.3.2.Final-WIN-x86_64",
+        "SCHEMA_REGISTRY_URL": "http://localhost:8081/api/ccompat",
+        "INPUT_TOPIC_NAME": "test",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    }
+  }
+}

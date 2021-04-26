@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+package Integra;
+
+import "google/protobuf/timestamp.proto";
+
+
+// Desde EntityTraceability a EntityNumber llego con  numberCode=@NumberCode AND entityCode=@EntityCode AND entity=@Entity
+
+message EntityNumber{
+
+    string numberCode = 1;
+    int32 entity = 2;
+    int64 entiTyCode = 3;
+    int32 entityGroup = 4;
+    Piece piece = 5;
+    google.protobuf.Timestamp inDate = 6;
+    int32 fromBranch = 7;
+    int32 toBranch = 8;
+    int32 inBranch = 9;
+    int32 state = 10;
+    int64 addressRecipient = 11;
+    int64 addressSender = 12;
+    google.protobuf.Timestamp deliveryDay = 13;
+    google.protobuf.Timestamp fromDeliveryTime = 14;
+    google.protobuf.Timestamp toDeliveryTime = 15;
+    int32 entityType = 16;
+    int32 originalFromBranch = 17;
+    int32 originalToBranch = 18;
+    string deliveryObservation = 19;
+    int32 numberType = 20;
+    string boxStore = 21;
+    string sealStore = 22;
+    int32 operator = 23;
+}
+
+// Desde EntityNumber a Piece con piece=EntityCode
+message Piece {
+    
+    int64 piece = 1;
+    double weight = 2;
+    double height = 3;
+    double length = 4; 
+    double wide = 5;
+    double declaredValue = 6;
+    string recipientDocumentNumber = 7;
+    string recipientEmail = 8;
+    string recipientName = 9;
+    string recipientTelephone = 10;
+    string recipientCellPhoneNumber = 11;
+    double retreatReceipt = 12;
+    double invoicingCategory = 13;
+    string shot = 14;
+    double tariff = 15;
+    double volume = 16;
+    Contract contract = 17;
+    repeated PieceExtended components = 18; 
+    repeated ContainerEntityContent containerEntityContents = 19;
+    PieceCollectionManagement pieceCollectionManagement= 20;
+}
+
+message Contract {
+    int32 contract = 1;
+    string description = 2;
+    int32 serviceType = 3;
+    string internal = 4;
+    Client client = 5;
+    int32 clientId = 6;
+    int32 clientAddress = 7;
+}
+
+message Client {
+    int32 client = 1;
+    string internal = 2;
+}
+
+message PieceExtended {
+    int64 piece = 1;
+    int64 pieceExtended = 2;
+    string clientNumbering = 3;
+    string titular = 4;
+    string telephone = 5;
+    string documentNumber = 6;
+    string email = 7;
+}
+
+message ContainerEntityContent {
+    int32 container = 1;
+    int64 containerCode = 2;
+    int32 entityContent = 3;
+    int64 entityContentCode = 4;
+    google.protobuf.Timestamp inDate = 5;
+
+}
+
+message PieceCollectionManagement {
+    int64 piece = 1;
+    double amount = 2;
+}

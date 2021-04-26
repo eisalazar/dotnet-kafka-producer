@@ -1,0 +1,124 @@
+// File name: entityNumber.proto
+syntax = "proto2";
+package model;
+
+option csharp_namespace = "IntegraPublisher.Model";
+
+/**
+ * @TypeId(3)
+ */
+ message Contract {
+   
+   required int64 contract = 1;
+   
+   required string description = 2;
+   
+   optional int64 serviceType = 3;
+   
+   required string internal = 4;
+   
+   required Client client = 5;
+   
+   optional int64 clientId = 6;
+   
+   required int64 clientAddress = 7;
+}
+/**
+ * @TypeId(2)
+ */
+message Piece {
+   
+   required int64 piece = 1;
+   
+   optional double weight = 2;
+   
+   optional double height = 3;
+   
+   optional double length = 4;
+   
+   optional double wide = 5;
+   
+   optional double declaredValue = 6;
+   
+   optional string recipientDocumentNumber = 7;
+   
+   optional string recipientEmail = 8;
+   
+   optional string recipientName = 9;
+   
+   optional string recipientTelephone = 10;
+   
+   optional string recipientCellPhoneNumber = 11;
+   
+   optional double retreatReceipt = 12;
+   
+   optional double invoicingCategory = 13;
+   
+   optional string shot = 14;
+   
+   optional double tariff = 15;
+   
+   optional double volume = 16;
+   
+   required Contract contract = 17;
+}
+/**
+ * @TypeId(4)
+ */
+message Client {
+   
+   required int64 client = 1;
+   
+   required string internal = 2;
+}
+/**
+ * @TypeId(1)
+ */
+message EntityNumber {
+   
+   required string numberCode = 1;
+   
+   required int64 entity = 2;
+   
+   required int64 entiTyCode = 3;
+   
+   required int64 entityGroup = 4;
+   
+   optional Piece piece = 5;
+   
+   required int64 inDate = 6;
+   
+   required int64 fromBranch = 7;
+   
+   required int64 toBranch = 8;
+   
+   optional int64 inBranch = 9;
+   
+   required int64 state = 10;
+   
+   optional int64 addressRecipient = 11;
+   
+   optional int64 addressSender = 12;
+   
+   optional int64 deliveryDay = 13;
+   
+   optional int64 fromDeliveryTime = 14;
+   
+   optional int64 toDeliveryTime = 15;
+   
+   optional int64 entityType = 16;
+   
+   optional int64 originalFromBranch = 17;
+   
+   optional int64 originalToBranch = 18;
+   
+   optional string deliveryObservation = 19;
+   
+   required int64 numberType = 20;
+   
+   optional string boxStore = 21;
+   
+   optional string sealStore = 22;
+   
+   required int64 operator = 23;
+}

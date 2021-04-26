@@ -1,0 +1,11 @@
+FROM registry.access.redhat.com/ubi8/dotnet-31-runtime:3.1
+USER 0
+
+RUN yum install -y cyrus-sasl-plain
+
+
+COPY ./src/api/bin/Release/netcoreapp3.1/linux-x64 .
+
+USER 1001
+
+CMD ["./IntegraPublisher"]
